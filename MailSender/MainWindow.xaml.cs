@@ -29,14 +29,14 @@ namespace MailSender
 
         private void button_SendEmail_Click(object sender, RoutedEventArgs e)
         {   
-            string strPassword = passwordBox_PasswordOwnMail.Password;
+            string password = passwordBox_OutgoingMail.Password;
 
-            EmailSendService service = new EmailSendService(Data.SMTP_MAIL, Data.SMTP_PORT, Data.OUTGOING_MAIL, strPassword);
+            EmailSendService service = new EmailSendService(Data.SMTP_MAIL, Data.SMTP_PORT, Data.OUTGOING_MAIL, password);
 
             foreach (string mail in Data.Mails)
                 try
                 {
-                    service.SendTo(mail, $"{DateTime.Now} :: Текст для примера", $"{DateTime.Now} :: ЗАГОЛОВОК");
+                    service.SendTo(mail, textBox_Text.Text, textBox_Title.Text);
                     MessageBox.Show(
                         $"Сообщение на адрес {mail} доставлено!", 
                         "Сообщение доставлено",

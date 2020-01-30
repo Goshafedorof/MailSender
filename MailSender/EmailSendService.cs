@@ -54,8 +54,8 @@ namespace MailSender
         /// </summary>
         /// <param name="mail">адрес отправки</param>
         /// <param name="text">текст сообщения</param>
-        /// <param name="subject">заголовок сообщения</param>        
-        public void SendTo(string mail, string text, string subject)
+        /// <param name="title">заголовок сообщения</param>        
+        public void SendTo(string mail, string text, string title)
         {
             if (string.IsNullOrEmpty(mail))
                 throw new Exception("Адрес отправки не указан");
@@ -63,7 +63,7 @@ namespace MailSender
             using (MailMessage msg = new MailMessage(OutgoingMail, mail))
             {
                 // формирование письма
-                msg.Subject = subject;      // Заголовок письма
+                msg.Subject = title;        // Заголовок письма
                 msg.Body = text;            // Тело письма
                 
                 msg.IsBodyHtml = false;     // html не используется в теле письма

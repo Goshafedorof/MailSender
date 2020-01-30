@@ -5,15 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name = "button_SendEmail" Content = "Отправить email"
-HorizontalAlignment = "Left" Margin = "240,193,0,0" VerticalAlignment = "Top"
-Width = "124" Click="button_SendEmail_Click"/>        
-        <PasswordBox x:Name = "passwordBox_PasswordOwnMail" HorizontalAlignment = "Left"
-Margin = "240,170,0,0" VerticalAlignment = "Top" Width = "124" />
+        Title="MainWindow" Height="312" Width="379" MinHeight="312" MinWidth="350">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Margin="2" Padding="2" Header="Файл">
+                <MenuItem Header="Открыть..."/>
+                <MenuItem Header="Создать..."/>
+                <MenuItem Header="Закрыть"/>
+                <Separator/>
+                <MenuItem Header="Выход"/>
+            </MenuItem>
+            <MenuItem Margin="2" Padding="2" Header="Параметры" />
+            <MenuItem Margin="2" Padding="2" Header="Справка" />
+        </Menu>
+        <TabControl DockPanel.Dock="Bottom" Padding="5" Margin="3">
+            <TabItem Header="Параметры сообщения">
+                <Grid DockPanel.Dock="Bottom">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
+                    <TextBlock Grid.Column="0" Grid.Row="0" Margin="4" Text="Пароль:" VerticalAlignment="Center"/>
+                    <PasswordBox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Padding="5" Margin="2" x:Name = "passwordBox_OutgoingMail" />
 
+                    <TextBlock Grid.Column="0" Grid.Row="1" Margin="4" VerticalAlignment="Center" Text="Заголовок:"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Padding="5" Margin="2" Name="textBox_Title"/>
 
-    </Grid>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="4" VerticalAlignment="Center" Text="Текст сообщения:"/>
+
+                    <TextBox Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Padding="5" Margin="2" Name="textBox_Text" Text="Введите сообщение..."/>
+
+                    <Button Grid.Column="2" Grid.Row="4" Padding="5" Margin="2" x:Name = "button_SendEmail" Content = "Отправить email" Click="button_SendEmail_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>
