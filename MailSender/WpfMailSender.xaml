@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
-        Title="EMailSender" Height="312" Width="379" MinHeight="312" MinWidth="350">
+        Title="EMailSender" Height="600" Width="875" MinHeight="312" MinWidth="350">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Margin="2" Padding="2" Header="Файл">
@@ -19,6 +20,111 @@
             <MenuItem Margin="2" Padding="2" Header="Справка" />
         </Menu>
         <TabControl DockPanel.Dock="Bottom" Padding="5" Margin="3">
+            <TabItem Header="Формирование групп рассылок" Margin="-5,-2,1,0">
+                <DockPanel>
+                    <ToolBarTray DockPanel.Dock="Top" Orientation="Horizontal">
+                        <ToolBar  Band="0" BandIndex="0" Header="Выбрать SMTP-сервер">
+                            <ComboBox x:Name="comboBox_SmtpServer" Height = "25" Margin = "0" VerticalAlignment = "Top" Width = "270" SelectedIndex = "0" ToolTip = "Выбрать smtp-сервер" />
+                            <Button x:Name="button_SmtpServerAdd" ToolTip="Добавить">
+                                <fa:ImageAwesome Height="12" Icon="PlusCircle" Foreground="Green"/>
+                            </Button>
+                            <Button x:Name="button_SmtpServerEdit" ToolTip="Редактировать" Foreground="Brown" >
+                                <fa:ImageAwesome Height="12" Icon="Pencil"/>
+                            </Button>
+                            <Button x:Name="button_SmtpServerDelete" ToolTip="Удалить">
+                                <fa:ImageAwesome Height="12" Icon="Close" Foreground="Red"/>
+                            </Button> 
+                        </ToolBar>
+                        <ToolBar Band="0" BandIndex="1" Header="Перейти в планировщик">
+                            <Button x:Name="button_Plan" ToolTip="Удалить">
+                                <fa:ImageAwesome Height="12" Icon="ClockOutline"/>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar  Band="1" BandIndex="0" Header="Выбрать отправителя">
+                            <ComboBox x:Name="comboBox_Sender" Height = "25" Margin = "0" VerticalAlignment = "Top" Width = "270" SelectedIndex = "0" ToolTip = "Выбрать smtp-сервер" />
+                            <Button x:Name="button_SenderAdd" ToolTip="Добавить">
+                                <fa:ImageAwesome Height="12" Icon="PlusCircle" Foreground="Green"/>
+                            </Button>
+                            <Button x:Name="button_SenderEdit" ToolTip="Редактировать" Foreground="Brown" >
+                                <fa:ImageAwesome Height="12" Icon="Pencil"/>
+                            </Button>
+                            <Button x:Name="button_SenderDelete" ToolTip="Удалить">
+                                <fa:ImageAwesome Height="12" Icon="Close" Foreground="Red"/>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar  Band="1" BandIndex="1" Header="Список адресатов">                            
+                            <Button ToolTip="Добавить">
+                                <fa:ImageAwesome Height="12" Icon="PlusCircle" Foreground="Green"/>
+                            </Button>
+                            <Button ToolTip="Редактировать" Foreground="Brown" >
+                                <fa:ImageAwesome Height="12" Icon="Pencil"/>
+                            </Button>
+                            <Button ToolTip="Удалить">
+                                <fa:ImageAwesome Height="12" Icon="Close" Foreground="Red"/>
+                            </Button>
+                        </ToolBar>
+                    </ToolBarTray>
+                    <DataGrid></DataGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Планировщик">
+                <DockPanel>
+                    <GroupBox Header="Управление">
+                        <StackPanel>
+                            <TextBlock Text="Календарь"/>
+                            <Calendar/>
+                            <StackPanel Margin="5">
+                                <Button HorizontalContentAlignment="Stretch">
+                                    <DockPanel Margin="20,0">
+                                        <fa:ImageAwesome DockPanel.Dock="Right" Height="12" Icon="ClockOutline"/>
+                                        <TextBlock HorizontalAlignment="Center">Запланировать</TextBlock>
+                                    </DockPanel>
+                                </Button>
+                                <Button HorizontalContentAlignment="Stretch" Click="OnSendButtonClick">
+                                    <DockPanel Margin="20,0">
+                                        <fa:ImageAwesome DockPanel.Dock="Right" Height="12" Icon="Send"/>
+                                        <TextBlock HorizontalAlignment="Center">Отправить</TextBlock>
+                                    </DockPanel>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Задания">
+                        <ListBox>
+                            <ListBoxItem HorizontalContentAlignment="Stretch">
+                                <GroupBox Header="Задание 1">
+                                    <StackPanel>
+                                        <TextBlock Text="Время"/>
+                                        <TextBlock Text="Сервер"/>
+                                        <TextBlock Text="Отправитель"/>
+                                        <TextBlock Text="Список получателей"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </ListBoxItem>
+                            <ListBoxItem HorizontalContentAlignment="Stretch">
+                                <GroupBox Header="Задание 2">
+                                    <StackPanel>
+                                        <TextBlock Text="Время"/>
+                                        <TextBlock Text="Сервер"/>
+                                        <TextBlock Text="Отправитель"/>
+                                        <TextBlock Text="Список получателей"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </ListBoxItem>
+                            <ListBoxItem HorizontalContentAlignment="Stretch">
+                                <GroupBox Header="Задание 3">
+                                    <StackPanel>
+                                        <TextBlock Text="Время"/>
+                                        <TextBlock Text="Сервер"/>
+                                        <TextBlock Text="Отправитель"/>
+                                        <TextBlock Text="Список получателей"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </ListBoxItem>
+                        </ListBox>
+                    </GroupBox>
+                </DockPanel>
+            </TabItem>
             <TabItem Header="Параметры сообщения">
                 <Grid DockPanel.Dock="Bottom">
                     <Grid.ColumnDefinitions>
@@ -46,7 +152,7 @@
 
                     <Button Grid.Column="2" Grid.Row="4" Padding="5" Margin="2" x:Name = "button_SendEmail" Content = "Отправить email" Click="button_SendEmail_Click"/>
                 </Grid>
-            </TabItem>
+            </TabItem>            
         </TabControl>
     </DockPanel>
 </Window>
