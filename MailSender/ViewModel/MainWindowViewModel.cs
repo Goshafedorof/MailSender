@@ -2,12 +2,12 @@ using GalaSoft.MvvmLight;
 
 namespace MailSender.ViewModel
 {
-    public class MainViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase
     {
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel()
+        public MainWindowViewModel()
         {
             ////if (IsInDesignMode)
             ////{

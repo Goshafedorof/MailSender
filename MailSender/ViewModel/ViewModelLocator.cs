@@ -25,10 +25,10 @@ namespace MailSender.ViewModel
             ////}
 
             // регистрация ViewModel
-            SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<MainWindowViewModel>();
         }
 
-        public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public MainWindowViewModel Main => ServiceLocator.Current.GetInstance<MainWindowViewModel>();
 
         public static void Cleanup()
         {

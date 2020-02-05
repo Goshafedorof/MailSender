@@ -20,9 +20,9 @@ namespace MailSender
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class WpfMailSender : Window
+    public partial class MainWindow : Window
     {
-        public WpfMailSender()
+        public MainWindow()
         {
             InitializeComponent();
         }
