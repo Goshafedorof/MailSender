@@ -6,7 +6,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
-        Title="EMailSender" Height="600" Width="875" MinHeight="312" MinWidth="350">
+        Title="Рассыльщик" Height="600" Width="875" MinHeight="312" MinWidth="350">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Margin="2" Padding="2" Header="Файл">
