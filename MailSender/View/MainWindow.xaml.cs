@@ -20,9 +20,7 @@ using MailSender.lib.Entities;
 using MailSender.lib.Service;
 using MailSender.lib.Services;
 
-
-
-namespace MailSender
+namespace MailSender.View
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml

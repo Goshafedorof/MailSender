@@ -6,7 +6,7 @@
              d1p1:Ignorable="d" 
              xmlns:local="clr-namespace:MailSender"             
              xmlns:vm="clr-namespace:MailSender.ViewModel"
-             StartupUri="MainWindow.xaml">
+             StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
