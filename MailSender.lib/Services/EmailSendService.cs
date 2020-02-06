@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Mail;
 
-namespace MailSender
+namespace MailSender.lib.Services
 {
     public class EmailSendService
     {

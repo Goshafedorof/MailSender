@@ -15,6 +15,13 @@ using System.Windows.Shapes;
 using System.Net;
 using System.Net.Mail;
 
+using MailSender.lib.Data;
+using MailSender.lib.Entities;
+using MailSender.lib.Service;
+using MailSender.lib.Services;
+
+
+
 namespace MailSender
 {
     /// <summary>

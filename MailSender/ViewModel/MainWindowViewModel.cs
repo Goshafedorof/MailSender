@@ -4,19 +4,14 @@ namespace MailSender.ViewModel
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
-        public MainWindowViewModel()
-        {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+        public MainWindowViewModel() { }
+
+        private string _title = "Рассыльщик почты";
+
+        public string Title
+        { 
+            get => _title;
+            set => Set(ref _title, value);
         }
     }
 }
