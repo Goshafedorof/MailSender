@@ -65,7 +65,8 @@
                             </Button>
                         </ToolBar>
                         <ToolBar  Band="1" BandIndex="0" Header="Выбрать отправителя">
-                            <ComboBox x:Name="comboBox_Sender" Height = "25" Margin = "0" VerticalAlignment = "Top" Width = "270" SelectedIndex = "0" ToolTip = "Выбрать smtp-сервер" />
+                            <ComboBox x:Name="comboBox_Sender" Height = "25" Margin = "0" VerticalAlignment = "Top" Width = "270" SelectedIndex = "0" ToolTip = "Выбрать smtp-сервер" 
+                                      ItemsSource="{Binding Senders}"/>
                             <Button x:Name="button_SenderAdd" ToolTip="Добавить">
                                 <fa:ImageAwesome Height="12" Icon="PlusCircle" Foreground="Green"/>
                             </Button>
