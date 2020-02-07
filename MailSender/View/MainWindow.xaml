@@ -10,7 +10,7 @@
         xmlns:data="clr-namespace:MailSender.lib.Data;assembly=MailSender.lib"
         xmlns:view="clr-namespace:MailSender.View"
         mc:Ignorable="d"
-        DataContext="{Binding MainWindow,Source={StaticResource Locator}}"
+        DataContext="{Binding MainWindowModel,Source={StaticResource Locator}}"
         Title="{Binding Title}" 
         Height="600" Width="875" 
         MinHeight="312" MinWidth="350">
@@ -169,7 +169,7 @@
 
                     <TextBox Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Padding="5" Margin="2" Name="textBox_Text" Text="Введите сообщение..." TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
 
-                    <Button Grid.Column="2" Grid.Row="4" Padding="5" Margin="2" x:Name = "button_SendEmail" Content = "Отправить email" Click="button_SendEmail_Click"/>
+                    <Button Grid.Column="2" Grid.Row="4" Padding="5" Margin="2" x:Name = "button_SendEmail" Content = "Отправить email"/>
                 </Grid>
             </TabItem>            
         </TabControl>

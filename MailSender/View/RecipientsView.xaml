@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MailSender.View"
              xmlns:view="clr-namespace:MailSender.View"
              mc:Ignorable="d" 
-             DataContext="{Binding RecipientsViewModel, Source={StaticResource Locator}}"
+             DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel Margin="3">
         <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontWeight="Bold">Получатели сообщений</TextBlock>

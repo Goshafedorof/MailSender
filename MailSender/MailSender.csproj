@@ -73,9 +73,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data.cs" />
-    <Compile Include="ViewModel\RecipientEditorViewModel.cs" />
-    <Compile Include="ViewModel\RecipientsViewViewModel.cs" />
     <Compile Include="View\RecipientEditor.xaml.cs">
       <DependentUpon>RecipientEditor.xaml</DependentUpon>
     </Compile>

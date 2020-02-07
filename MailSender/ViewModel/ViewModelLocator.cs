@@ -18,17 +18,13 @@ namespace MailSender.ViewModel
 
             // регистрация ViewModel
             SimpleIoc.Default.Register<MainWindowViewModel>();
-            SimpleIoc.Default.Register<RecipientsViewViewModel>();
-            SimpleIoc.Default.Register<RecipientEditorViewModel>();
 
             SimpleIoc.Default.Register<IRecipientsManager, RecipientsManager>();
             SimpleIoc.Default.Register<IRecipientsStore, RecipientsStoreInMemory>();
         }
 
         public MainWindowViewModel MainWindowModel => ServiceLocator.Current.GetInstance<MainWindowViewModel>();
-        public RecipientsViewViewModel RecipientsViewModel => ServiceLocator.Current.GetInstance<RecipientsViewViewModel>();
-        public RecipientEditorViewModel RecipientsEditorModel => ServiceLocator.Current.GetInstance<RecipientEditorViewModel>();
-
+        
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
