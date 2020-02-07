@@ -66,9 +66,12 @@ namespace MailSender.ViewModel
         }
         #endregion
 
-        public MainWindowViewModel(IRecipientsManager recipientManager) 
+        public MainWindowViewModel(IRecipientsManager recipientManager, IServersManager serverManager) 
         {
             _recipientManager = recipientManager;
+
+            _servers = new ObservableCollection<Server>(serverManager.GetAll());
+            _senders = new ObservableCollection<Sender>();
 
             #region initCommands
             LoadRecipientsDataCommand = new RelayCommand(OnLoadRecipientsDataCommandExecuted, CanLoadRecipientsDataCommandExecute);

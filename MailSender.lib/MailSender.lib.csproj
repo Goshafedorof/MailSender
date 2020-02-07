@@ -47,10 +47,18 @@
     <Compile Include="Entities\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EmailSendService.cs" />
+    <Compile Include="Services\Interfaces\ISendersManager.cs" />
+    <Compile Include="Services\Interfaces\ISendersStore.cs" />
+    <Compile Include="Services\Interfaces\IServersStore.cs" />
     <Compile Include="Services\Interfaces\IRecipientsManager.cs" />
     <Compile Include="Services\Interfaces\IRecipientsStore.cs" />
+    <Compile Include="Services\Interfaces\IServersManager.cs" />
     <Compile Include="Services\RecipientsManager.cs" />
     <Compile Include="Services\RecipientsStoreInMemory.cs" />
+    <Compile Include="Services\SendersManager.cs" />
+    <Compile Include="Services\SenderStoreInMemory.cs" />
+    <Compile Include="Services\ServersManager.cs" />
+    <Compile Include="Services\ServerStoreInMemory.cs" />
     <Compile Include="Service\TestEncoder.cs" />
   </ItemGroup>
   <ItemGroup />
