@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:MailSender.View"
-        xmlns:view="clr-namespace:MailSender.ViewModel"
+        xmlns:viewmodel="clr-namespace:MailSender.ViewModel"
         xmlns:entitites="clr-namespace:MailSender.lib.Entities;assembly=MailSender.lib"
         xmlns:data="clr-namespace:MailSender.lib.Data;assembly=MailSender.lib"
+        xmlns:view="clr-namespace:MailSender.View"
         mc:Ignorable="d"
         DataContext="{Binding MainWindow,Source={StaticResource Locator}}"
         Title="{Binding Title}" 
@@ -71,7 +72,18 @@
                             </Button>
                         </ToolBar>
                     </ToolBarTray>
-                    <DataGrid></DataGrid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <view:RecipientsView Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+                        <view:RecipientEditor Grid.Column="1" Grid.Row="0"/>
+                    </Grid>
                 </DockPanel>
             </TabItem>
             <TabItem Header="Планировщик">

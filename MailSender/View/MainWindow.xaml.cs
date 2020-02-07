@@ -57,5 +57,6 @@ namespace MailSender.View
                         MessageBoxImage.Error);
                 }
         }
+
     }
 }
