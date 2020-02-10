@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>8d0bec72-065a-4a78-b2b2-f72216220d49</ProjectGuid>
+    <ProjectGuid>{8D0BEC72-065A-4A78-B2B2-F72216220D49}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MailSender.lib</RootNamespace>
@@ -31,24 +31,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Data\TestData.cs" />
+    <Compile Include="Entities\Recipient.cs" />
+    <Compile Include="Entities\Sender.cs" />
+    <Compile Include="Entities\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EmailSendService.cs" />
+    <Compile Include="Services\Interfaces\ISendersManager.cs" />
+    <Compile Include="Services\Interfaces\ISendersStore.cs" />
+    <Compile Include="Services\Interfaces\IServersStore.cs" />
+    <Compile Include="Services\Interfaces\IRecipientsManager.cs" />
+    <Compile Include="Services\Interfaces\IRecipientsStore.cs" />
+    <Compile Include="Services\Interfaces\IServersManager.cs" />
+    <Compile Include="Services\RecipientsManager.cs" />
+    <Compile Include="Services\RecipientsStoreInMemory.cs" />
+    <Compile Include="Services\SendersManager.cs" />
+    <Compile Include="Services\SenderStoreInMemory.cs" />
+    <Compile Include="Services\ServersManager.cs" />
+    <Compile Include="Services\ServerStoreInMemory.cs" />
+    <Compile Include="Service\TestEncoder.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
