@@ -1,18 +1,12 @@
-﻿namespace MailSender.lib.Entities
+﻿using MailSender.lib.Entities.Base;
+
+namespace MailSender.lib.Entities
 {
     /// <summary>
     /// Описатель почтового сервера
     /// </summary>
-    public class Server
+    public class Server : NamedEntity
     {
-        /// <summary>
-        /// Индентификатор сервера
-        /// </summary>
-        public int Id { get; set; }
-        /// <summary>
-        /// Название сервера
-        /// </summary>
-        public string Name { get; set; }
         /// <summary>
         /// Адрес сервера
         /// </summary>

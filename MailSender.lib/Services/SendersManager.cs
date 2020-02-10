@@ -29,7 +29,7 @@ namespace MailSender.lib.Services
 
         public IEnumerable<Sender> GetAll()
         {
-            return _store.Get();
+            return _store.GetAll();
         }
 
         public void SaveChanges()

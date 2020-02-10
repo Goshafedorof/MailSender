@@ -1,9 +1,9 @@
-using System;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Ioc;
 using CommonServiceLocator;
-using MailSender.lib.Services.Interfaces;
+using GalaSoft.MvvmLight.Ioc;
 using MailSender.lib.Services;
+using MailSender.lib.Services.Interfaces;
+using MailSender.lib.Services.Interfaces.Store;
+using MailSender.lib.Services.Interfaces.Store.InMemory;
 
 namespace MailSender.ViewModel
 {
@@ -22,9 +22,9 @@ namespace MailSender.ViewModel
             SimpleIoc.Default.Register<IRecipientsManager, RecipientsManager>();
             SimpleIoc.Default.Register<IRecipientsStore, RecipientsStoreInMemory>();
             SimpleIoc.Default.Register<IServersManager, ServersManager>();
-            SimpleIoc.Default.Register<IServersStore, ServerStoreInMemory>();
+            SimpleIoc.Default.Register<IServersStore, ServersStoreInMemory>();
             SimpleIoc.Default.Register<ISendersManager, SendersManager>();
-            SimpleIoc.Default.Register<ISendersStore, SenderStoreInMemory>();
+            SimpleIoc.Default.Register<ISendersStore, SendersStoreInMemory>();
         }
 
         public MainWindowViewModel MainWindowModel => ServiceLocator.Current.GetInstance<MainWindowViewModel>();

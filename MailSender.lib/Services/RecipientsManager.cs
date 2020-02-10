@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MailSender.lib.Entities;
 using MailSender.lib.Services.Interfaces;
+using MailSender.lib.Services.Interfaces.Store;
 
 namespace MailSender.lib.Services
 {
@@ -19,7 +20,7 @@ namespace MailSender.lib.Services
 
         public void Add(Recipient newRecipient)
         {
-            _store.Add(newRecipient);
+            _store.Create(newRecipient);
         }
 
         public void Edit(Recipient recipient)
@@ -29,7 +30,7 @@ namespace MailSender.lib.Services
 
         public IEnumerable<Recipient> GetAll()
         {
-            return _store.Get();
+            return _store.GetAll();
         }
 
         public void SaveChanges()
