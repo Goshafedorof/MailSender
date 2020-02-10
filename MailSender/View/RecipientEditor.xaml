@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSender.View"
+             xmlns:validation="clr-namespace:MailSender.Validation.ValidationRules"
              DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
              mc:Ignorable="d" Height="131.516" Width="322.581">
     <Grid Margin="5">
@@ -33,7 +34,13 @@
 
         <TextBox Grid.Column="1" Grid.Row="0" IsReadOnly="True" Text="{Binding SelectedRecipient.Id}"/>
         <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding SelectedRecipient.Name}" />
-        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding SelectedRecipient.Address}"/>
+        <TextBox Grid.Column="1" Grid.Row="2">
+            <Binding Path="SelectedRecipient.Address" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
+                <Binding.ValidationRules>
+                    <validation:RegExValidation Pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" ErrorMessage="Неверный формат адреса электронной почты"/>                    
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox>
 
         <UniformGrid Rows="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" 
                      VerticalAlignment="Top" HorizontalAlignment="Center"
