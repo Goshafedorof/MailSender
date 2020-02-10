@@ -1,7 +1,8 @@
 ﻿using MailSender.lib.Data;
 using MailSender.lib.Entities;
+using MailSender.lib.Services.Interfaces;
 
-namespace MailSender.lib.Services.Interfaces.Store.InMemory
+namespace MailSender.lib.Services.InMemory
 {
     public class SendersStoreInMemory : DataStoreInMemory<Sender>, ISendersStore
     {

@@ -1,8 +1,12 @@
 ﻿using MailSender.lib.Data;
 using MailSender.lib.Entities;
+using MailSender.lib.Services.Interfaces.Store;
 
-namespace MailSender.lib.Services.Interfaces.Store.InMemory
+namespace MailSender.lib.Services.InMemory
 {
+    /// <summary>
+    /// Реализация хранения о получателях
+    /// </summary>
     public class RecipientsStoreInMemory : DataStoreInMemory<Recipient>, IRecipientsStore
     {
         public RecipientsStoreInMemory() : base(TestData.Recipients) { }

@@ -1,8 +1,12 @@
 ﻿using MailSender.lib.Data;
 using MailSender.lib.Entities;
+using MailSender.lib.Services.Interfaces.Store;
 
-namespace MailSender.lib.Services.Interfaces.Store.InMemory
+namespace MailSender.lib.Services.InMemory
 {
+    /// <summary>
+    /// Реализация хранения информации о серверах
+    /// </summary>
     public class ServersStoreInMemory : DataStoreInMemory<Server>, IServersStore
     {
         public ServersStoreInMemory() : base(TestData.Servers) { }
@@ -21,4 +25,5 @@ namespace MailSender.lib.Services.Interfaces.Store.InMemory
             db_server.Password = server.Password;
         }
     }
+
 }

@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using MailSender.lib.Entities.Base;
+using MailSender.lib.Services.Interfaces.Store;
 
-namespace MailSender.lib.Services.Interfaces.Store.InMemory
+namespace MailSender.lib.Services.InMemory
 {
+    /// <summary>
+    /// Реализация хранения данных в памяти
+    /// </summary>
+    /// <typeparam name="T">тип сущности</typeparam>
     public abstract class DataStoreInMemory<T> : IDataStore<T> where T : BaseEntity
     {
         private readonly List<T> _items;

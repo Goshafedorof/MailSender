@@ -1,9 +1,11 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
 using MailSender.lib.Services;
+using MailSender.lib.Services.InMemory;
 using MailSender.lib.Services.Interfaces;
+using MailSender.lib.Services.Interfaces.Manager;
 using MailSender.lib.Services.Interfaces.Store;
-using MailSender.lib.Services.Interfaces.Store.InMemory;
+using MailSender.lib.Services.Managers;
 
 namespace MailSender.ViewModel
 {
@@ -19,8 +21,8 @@ namespace MailSender.ViewModel
             // регистрация ViewModel
             SimpleIoc.Default.Register<MainWindowViewModel>();
 
-            SimpleIoc.Default.Register<IRecipientsManager, RecipientsManager>();
             SimpleIoc.Default.Register<IRecipientsStore, RecipientsStoreInMemory>();
+            SimpleIoc.Default.Register<IRecipientsManager, RecipientsManager>();
             SimpleIoc.Default.Register<IServersManager, ServersManager>();
             SimpleIoc.Default.Register<IServersStore, ServersStoreInMemory>();
             SimpleIoc.Default.Register<ISendersManager, SendersManager>();

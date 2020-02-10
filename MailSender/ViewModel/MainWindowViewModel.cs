@@ -2,6 +2,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using MailSender.lib.Entities;
 using MailSender.lib.Services.Interfaces;
+using MailSender.lib.Services.Interfaces.Manager;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
