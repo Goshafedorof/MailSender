@@ -13,7 +13,7 @@
         DataContext="{Binding MainWindowModel,Source={StaticResource Locator}}"
         Title="{Binding Title}" 
         Height="600" Width="875" 
-        MinHeight="312" MinWidth="350">    
+        MinHeight="312" MinWidth="350">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Margin="2" Padding="2" Header="Файл">
@@ -47,7 +47,7 @@
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
-                                
+
                             </ComboBox>
                             <Button x:Name="button_SmtpServerAdd" ToolTip="Добавить">
                                 <fa:ImageAwesome Height="12" Icon="PlusCircle" Foreground="Green"/>
@@ -57,7 +57,7 @@
                             </Button>
                             <Button x:Name="button_SmtpServerDelete" ToolTip="Удалить">
                                 <fa:ImageAwesome Height="12" Icon="Close" Foreground="Red"/>
-                            </Button> 
+                            </Button>
                         </ToolBar>
                         <ToolBar Band="0" BandIndex="1" Header="Перейти в планировщик">
                             <Button x:Name="button_Plan" ToolTip="Удалить">
@@ -77,7 +77,7 @@
                                 <fa:ImageAwesome Height="12" Icon="Close" Foreground="Red"/>
                             </Button>
                         </ToolBar>
-                        <ToolBar  Band="1" BandIndex="1" Header="Список адресатов">                            
+                        <ToolBar  Band="1" BandIndex="1" Header="Список адресатов">
                             <Button ToolTip="Добавить">
                                 <fa:ImageAwesome Height="12" Icon="PlusCircle" Foreground="Green"/>
                             </Button>
@@ -188,7 +188,7 @@
 
                     <Button Grid.Column="2" Grid.Row="4" Padding="5" Margin="2" x:Name = "button_SendEmail" Content = "Отправить email"/>
                 </Grid>
-            </TabItem>            
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>

@@ -5,8 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSender.View"
              DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
-             mc:Ignorable="d" Height="114.516" Width="322.581">
+             mc:Ignorable="d" Height="131.516" Width="322.581">
     <Grid Margin="5">
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="Margin" Value="5,3"/>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="3"/>
+                <Setter Property="TextAlignment" Value="Right"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
