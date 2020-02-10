@@ -14,6 +14,15 @@
         Title="{Binding Title}" 
         Height="600" Width="875" 
         MinHeight="312" MinWidth="350">
+    <Window.Resources>
+        <Style x:Key="ComboBox_Style" TargetType="ComboBox">
+            <Setter Property="Width" Value="270"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="SelectedIndex" Value="0"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Margin="2" Padding="2" Header="Файл">
@@ -29,11 +38,10 @@
         <StatusBar Height="20" DockPanel.Dock="Bottom"/>
         <TabControl DockPanel.Dock="Top" Padding="5" Margin="3">
             <TabItem Header="Формирование групп рассылок" Margin="-5,-2,1,0">
-                <DockPanel>
-                    <ToolBarTray DockPanel.Dock="Top" Orientation="Horizontal">
-                        <ToolBar  Band="0" BandIndex="0" Header="Выбрать SMTP-сервер">
-                            <ComboBox Height = "25" Margin = "0" VerticalAlignment = "Top" Width = "270" SelectedIndex = "0" ToolTip = "Выбрать smtp-сервер" 
-                                      ItemsSource="{Binding Servers}" >
+                <DockPanel>                    
+                    <ToolBarTray DockPanel.Dock="Top" Orientation="Horizontal">                        
+                        <ToolBar Band="0" BandIndex="0" Header="Выбрать SMTP-сервер">
+                            <ComboBox ToolTip="Выбрать smtp-сервер" ItemsSource="{Binding Servers}" Style="{StaticResource ComboBox_Style}">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate DataType="entities:Server">
                                         <StackPanel Orientation="Horizontal">
@@ -47,7 +55,6 @@
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
-
                             </ComboBox>
                             <Button x:Name="button_SmtpServerAdd" ToolTip="Добавить">
                                 <fa:ImageAwesome Height="12" Icon="PlusCircle" Foreground="Green"/>
@@ -65,8 +72,7 @@
                             </Button>
                         </ToolBar>
                         <ToolBar  Band="1" BandIndex="0" Header="Выбрать отправителя">
-                            <ComboBox x:Name="comboBox_Sender" Height = "25" Margin = "0" VerticalAlignment = "Top" Width = "270" SelectedIndex = "0" ToolTip = "Выбрать smtp-сервер" 
-                                      ItemsSource="{Binding Senders}"/>
+                            <ComboBox ToolTip = "Выбрать smtp-сервер" ItemsSource="{Binding Senders}" Style="{StaticResource ComboBox_Style}"/>
                             <Button x:Name="button_SenderAdd" ToolTip="Добавить">
                                 <fa:ImageAwesome Height="12" Icon="PlusCircle" Foreground="Green"/>
                             </Button>
