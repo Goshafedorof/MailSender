@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MailSender.lib.Entities
 {
+    /// <summary>
+    /// Тестирование особенностей pullRequest
+    /// </summary>
     public class Mail : BaseEntity
     {
         /// <summary>
