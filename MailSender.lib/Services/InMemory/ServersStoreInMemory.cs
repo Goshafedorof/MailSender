@@ -1,6 +1,7 @@
 ﻿using MailSender.lib.Data;
 using MailSender.lib.Entities;
 using MailSender.lib.Services.Interfaces.Store;
+using System;
 
 namespace MailSender.lib.Services.InMemory
 {
@@ -13,6 +14,9 @@ namespace MailSender.lib.Services.InMemory
 
         public override void Edit(int id, Server server)
         {
+            if (id < 0 || server == null)
+                throw new ArgumentNullException();
+
             var db_server = GetById(id);
             if (db_server is null) return;
 
