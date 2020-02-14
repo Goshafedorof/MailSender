@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5B500FF7-C19D-47A4-BEE0-DC12BC150276}</ProjectGuid>
+    <ProjectGuid>{8B550BEB-E8A5-4651-8DDE-796C462EC27D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FactorialThread</RootNamespace>
-    <AssemblyName>FactorialThread</AssemblyName>
+    <RootNamespace>CsvParser</RootNamespace>
+    <AssemblyName>CsvParser</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
