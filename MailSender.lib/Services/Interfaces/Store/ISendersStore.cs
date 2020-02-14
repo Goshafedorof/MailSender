@@ -1,4 +1,5 @@
 ﻿using MailSender.lib.Entities;
+using MailSender.lib.Services.Interfaces.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,8 @@ using System.Threading.Tasks;
 
 namespace MailSender.lib.Services.Interfaces
 {
-    public interface ISendersStore
-    {
-        IEnumerable<Sender> Get();
-
-        void Edit(int id, Sender sender);
-
-        void Add(Sender sender);
-
-        void SaveChanges();
-    }
+    /// <summary>
+    /// Хранилище отправителей
+    /// </summary>
+    public interface ISendersStore : IDataStore<Sender> { }
 }

@@ -42,23 +42,45 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\TestData.cs" />
+    <Compile Include="Entities\Base\BaseEntity.cs" />
+    <Compile Include="Entities\Base\NamedEntity.cs" />
+    <Compile Include="Entities\Base\PersonEntity.cs" />
+    <Compile Include="Entities\Mail.cs" />
+    <Compile Include="Entities\MailingList.cs" />
     <Compile Include="Entities\Recipient.cs" />
+    <Compile Include="Entities\SchedulerTask.cs" />
     <Compile Include="Entities\Sender.cs" />
     <Compile Include="Entities\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EmailSendService.cs" />
-    <Compile Include="Services\Interfaces\ISendersManager.cs" />
-    <Compile Include="Services\Interfaces\ISendersStore.cs" />
-    <Compile Include="Services\Interfaces\IServersStore.cs" />
-    <Compile Include="Services\Interfaces\IRecipientsManager.cs" />
-    <Compile Include="Services\Interfaces\IRecipientsStore.cs" />
-    <Compile Include="Services\Interfaces\IServersManager.cs" />
-    <Compile Include="Services\RecipientsManager.cs" />
-    <Compile Include="Services\RecipientsStoreInMemory.cs" />
-    <Compile Include="Services\SendersManager.cs" />
-    <Compile Include="Services\SenderStoreInMemory.cs" />
-    <Compile Include="Services\ServersManager.cs" />
-    <Compile Include="Services\ServerStoreInMemory.cs" />
+    <Compile Include="Services\InMemory\MailingListStoreInMemory.cs" />
+    <Compile Include="Services\InMemory\MailsStoreInMemory.cs" />
+    <Compile Include="Services\InMemory\SchedulerTasksStoreInMemory.cs" />
+    <Compile Include="Services\Interfaces\Manager\IDataManager.cs" />
+    <Compile Include="Services\InMemory\DataStoreInMemory.cs" />
+    <Compile Include="Services\Interfaces\Manager\IMailingListManager.cs" />
+    <Compile Include="Services\Interfaces\Manager\IMailsManager.cs" />
+    <Compile Include="Services\Interfaces\Manager\ISchedulerTaskManadger.cs" />
+    <Compile Include="Services\Interfaces\Store\IDataStore.cs" />
+    <Compile Include="Services\Interfaces\Manager\ISendersManager.cs" />
+    <Compile Include="Services\Interfaces\Store\IMailingListStore.cs" />
+    <Compile Include="Services\Interfaces\Store\IMailsStore.cs" />
+    <Compile Include="Services\Interfaces\Store\ISchedulerTasksStore.cs" />
+    <Compile Include="Services\Interfaces\Store\ISendersStore.cs" />
+    <Compile Include="Services\Interfaces\Store\IServersStore.cs" />
+    <Compile Include="Services\Interfaces\Manager\IRecipientsManager.cs" />
+    <Compile Include="Services\Interfaces\Store\IRecipientsStore.cs" />
+    <Compile Include="Services\Interfaces\Manager\IServersManager.cs" />
+    <Compile Include="Services\Managers\DataManager.cs" />
+    <Compile Include="Services\Managers\MailingListManager.cs" />
+    <Compile Include="Services\Managers\MailsManager.cs" />
+    <Compile Include="Services\Managers\RecipientsManager.cs" />
+    <Compile Include="Services\InMemory\RecipientsStoreInMemory.cs" />
+    <Compile Include="Services\Managers\SchedulerTasksManager.cs" />
+    <Compile Include="Services\Managers\SendersManager.cs" />
+    <Compile Include="Services\Managers\ServersManager.cs" />
+    <Compile Include="Services\InMemory\SendersStoreInMemory.cs" />
+    <Compile Include="Services\InMemory\ServersStoreInMemory.cs" />
     <Compile Include="Service\TestEncoder.cs" />
   </ItemGroup>
   <ItemGroup />
