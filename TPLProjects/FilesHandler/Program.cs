@@ -14,8 +14,17 @@ using System.IO;
 namespace FilesHandler
 {
     class Program
-    {
+    {   
+        private const int SIGN_MULTIPLY = 1;
+        private const int SIGN_DIVISION = 2;
+        private const int COUNT_NUMBERS_IN_FILE = 3;
+        private const string FILENAME_RESULT = "result.dat";
+
+        private static readonly string[] SEPARATORS = new string[] { " " };
+
         private static object _lock = new object();
+
+        private static StreamWriter _streamWriter;
 
         static void Main(string[] args)
         {
@@ -35,21 +44,29 @@ namespace FilesHandler
 
             FileInfo[] files = directory.GetFiles();
 
+            _streamWriter = new StreamWriter(FILENAME_RESULT);
+
             for (int i = 0; i < files.Length; i++)
             {
                 string path = files[i].FullName;
 
                 await Task.Run(() => OpenFile(path)).ConfigureAwait(false);
             }
+
+            _streamWriter.Close();
         }
 
         private static void OpenFile(string path)
         {
             lock (_lock)
             {
+                // считывание и разбор файла
                 string text = File.ReadAllText(path);
 
-                string[] numbers = text.Split(' ');
+                string[] numbers = text.Split(SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
+
+                if (numbers.Length != COUNT_NUMBERS_IN_FILE)
+                    return;
 
                 int sign = 0;
 
@@ -68,14 +85,14 @@ namespace FilesHandler
 
                 float result = 0;
 
-                if (sign == 1)
+                if (sign == SIGN_MULTIPLY)
                     result = number_1 * number_2;
-                else if (sign == 2)
+                else if (sign == SIGN_DIVISION)
                     result = number_1 / number_2;
                 else
                     return;
 
-                File.WriteAllText("result.dat", result.ToString());
+                _streamWriter.WriteLine(result.ToString());
             }
         }
     }
