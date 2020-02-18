@@ -52,6 +52,25 @@ namespace MatrixMultiplaction
             return column;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Matrix))
+                return false;
+
+            Matrix eqMatrix = (Matrix)obj;
+
+            if (eqMatrix.ColumnsCount != this.ColumnsCount ||
+                eqMatrix.RowsCount != this.RowsCount)
+                return false;
+
+            for (int row = 0; row < this.RowsCount; row++)
+                for (int column = 0; column < this.ColumnsCount; column++)
+                    if (this[row, column] != eqMatrix[row, column])
+                        return false;
+
+            return true;
+        }
+
         public static Matrix GetRandom(int columnsCount, int rowsCount)
         {
             Matrix m = new Matrix();
@@ -113,8 +132,7 @@ namespace MatrixMultiplaction
 
             return result;
         }
-
-
+        
         private static int MultiplyVectors(int[] row, int[] column)
         {
             int result = 0;
@@ -124,10 +142,5 @@ namespace MatrixMultiplaction
 
             return result;
         }
-
-        //public void Multiply_quard_matix_3_3()
-        //{
-        //    
-        //}
     }
 }

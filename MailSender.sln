@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TPLProjects", "TPLProjects"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixMultiplaction", "TPLProjects\MatrixMultiplaction\MatrixMultiplaction.csproj", "{1B8B6FC6-28F8-4D83-BECD-5FBD7C9B6D17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixMultiplaction.Tests", "Tests\MatrixMultipaction.Tests\MatrixMultiplaction.Tests.csproj", "{CC2F4080-F359-4AE8-A42E-2C26B174B0FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixMultiplaction.Tests", "Tests\MatrixMultiplaction.Tests\MatrixMultiplaction.Tests.csproj", "{CC2F4080-F359-4AE8-A42E-2C26B174B0FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

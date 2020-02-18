@@ -7,13 +7,13 @@ namespace MatrixMultiplaction.Tests
     public class MatrixTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Multyply_quard_matix_3by3()
         {
             //Матрица A:
             // 1 2 3
             // 4 5 6
             // 7 8 9
-            //
+            
             // Матрица B:
             // 9 8 7
             // 6 5 4
