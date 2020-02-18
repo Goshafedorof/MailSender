@@ -37,6 +37,7 @@ namespace MatrixMultiplaction
 
             timer.Start();
             Matrix c1 = Matrix.MultiplyAsync(a, b).Result;
+            //var c1 = Matrix.MultiplyAsync(a, b);
             timer.Stop();
 
             Console.WriteLine($"Асинхронный метод вычисления, с: {timer.Elapsed.TotalSeconds}");

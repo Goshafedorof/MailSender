@@ -18,7 +18,7 @@ namespace MatrixMultiplaction
         /// Количество строк в матрице
         /// </summary>
         public int RowsCount { get { return _matrix.Length; } }
-
+        
         public int this[int row, int column] 
         {
             set { _matrix[row][column] = value; }
