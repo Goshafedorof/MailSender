@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
 // * В директории лежат файлы.По структуре они содержат три числа, разделенные пробелами.
 // Первое число — целое, обозначает действие: 1- — умножение и 2 — деление.Остальные два
@@ -44,56 +45,56 @@ namespace FilesHandler
 
             FileInfo[] files = directory.GetFiles();
 
-            _streamWriter = new StreamWriter(FILENAME_RESULT);
+            _streamWriter = new StreamWriter(Path.Combine(directory.FullName, FILENAME_RESULT));
 
             for (int i = 0; i < files.Length; i++)
             {
                 string path = files[i].FullName;
 
-                await Task.Run(() => OpenFile(path)).ConfigureAwait(false);
+                await OpenFile(path).ConfigureAwait(false);
             }
 
             _streamWriter.Close();
         }
 
-        private static void OpenFile(string path)
+        private static async Task OpenFile(string path)
         {
-            lock (_lock)
-            {
-                // считывание и разбор файла
-                string text = File.ReadAllText(path);
+            StreamReader streamReader = new StreamReader(path);
 
-                string[] numbers = text.Split(SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
+            var text = await streamReader.ReadLineAsync().ConfigureAwait(false);
 
-                if (numbers.Length != COUNT_NUMBERS_IN_FILE)
-                    return;
+            streamReader.Close();
 
-                int sign = 0;
+            string[] numbers = text.Split(SEPARATORS, StringSplitOptions.RemoveEmptyEntries);
 
-                if (!int.TryParse(numbers[0], out sign))
-                    return;
+            if (numbers.Length != COUNT_NUMBERS_IN_FILE)
+                return;
 
-                float number_1 = 0;
+            int sign = 0;
 
-                if (!float.TryParse(numbers[1], out number_1))
-                    return;
+            if (!int.TryParse(numbers[0], out sign))
+                return;
 
-                float number_2 = 0;
+            float number_1 = 0;
 
-                if (!float.TryParse(numbers[2], out number_2))
-                    return;
+            if (!float.TryParse(numbers[1], out number_1))
+                return;
 
-                float result = 0;
+            float number_2 = 0;
 
-                if (sign == SIGN_MULTIPLY)
-                    result = number_1 * number_2;
-                else if (sign == SIGN_DIVISION)
-                    result = number_1 / number_2;
-                else
-                    return;
+            if (!float.TryParse(numbers[2], out number_2))
+                return;
 
-                _streamWriter.WriteLine(result.ToString());
-            }
+            float result = 0;
+
+            if (sign == SIGN_MULTIPLY)
+                result = number_1 * number_2;
+            else if (sign == SIGN_DIVISION)
+                result = number_1 / number_2;
+            else
+                return;
+
+            await _streamWriter.WriteLineAsync($"{DateTime.Now.Millisecond} :: {result}");
         }
     }
 }
