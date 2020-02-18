@@ -15,11 +15,22 @@ namespace FilesHandler
 {
     class Program
     {
+        private static object _lock = new object();
+
         static void Main(string[] args)
         {
             Console.Write("Введите путь к директории: ");
             string directoryPath = Console.ReadLine();
 
+            StartAsync(directoryPath);
+
+            Console.WriteLine();
+            Console.Write("Для завершения работы нажмите любую клавишу...");
+            Console.ReadKey();
+        }
+
+        private static async void StartAsync(string directoryPath)
+        {
             DirectoryInfo directory = new DirectoryInfo(directoryPath);
 
             FileInfo[] files = directory.GetFiles();
@@ -28,24 +39,32 @@ namespace FilesHandler
             {
                 string path = files[i].FullName;
 
+                await Task.Run(() => OpenFile(path)).ConfigureAwait(false);
+            }
+        }
+
+        private static void OpenFile(string path)
+        {
+            lock (_lock)
+            {
                 string text = File.ReadAllText(path);
 
                 string[] numbers = text.Split(' ');
-                               
+
                 int sign = 0;
 
                 if (!int.TryParse(numbers[0], out sign))
-                    continue;
+                    return;
 
                 float number_1 = 0;
 
                 if (!float.TryParse(numbers[1], out number_1))
-                    continue;
+                    return;
 
                 float number_2 = 0;
 
                 if (!float.TryParse(numbers[2], out number_2))
-                    continue;
+                    return;
 
                 float result = 0;
 
@@ -54,7 +73,7 @@ namespace FilesHandler
                 else if (sign == 2)
                     result = number_1 / number_2;
                 else
-                    continue;
+                    return;
 
                 File.WriteAllText("result.dat", result.ToString());
             }
