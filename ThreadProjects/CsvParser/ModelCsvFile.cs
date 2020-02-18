@@ -26,9 +26,7 @@ namespace CsvParser
             _modelCsvFile = new ModelCsvFile();
             _reader = new StreamReader(filename);
 
-            _reader.
-
-
+            return null;
         }
 
         private static ModelCsvFile _modelCsvFile;
