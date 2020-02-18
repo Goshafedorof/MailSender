@@ -91,6 +91,30 @@ namespace MatrixMultiplaction
             return result;
         }
 
+        public static async Task<Matrix> MultiplyAsync(Matrix A, Matrix B)
+        {
+            if (A == null || B == null)
+                throw new ArgumentNullException();
+
+            if (A.ColumnsCount != B.RowsCount)
+                throw new ArithmeticException();
+
+            Matrix result = new Matrix(A.RowsCount, B.ColumnsCount);
+
+            for (int row = 0; row < result.RowsCount; row++)
+            {
+                for (int column = 0; column < result.ColumnsCount; column++)
+                {
+                    int row1 = row;
+                    int column1 = column;
+                    result[row1, column1] = await Task.Run(() => MultiplyVectors(A.GetRow(row1), B.GetColumn(column1))).ConfigureAwait(false);
+                }
+            }
+
+            return result;
+        }
+
+
         private static int MultiplyVectors(int[] row, int[] column)
         {
             int result = 0;
@@ -100,6 +124,5 @@ namespace MatrixMultiplaction
 
             return result;
         }
-
     }
 }

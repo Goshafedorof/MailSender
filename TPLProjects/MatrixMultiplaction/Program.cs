@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,20 @@ namespace MatrixMultiplaction
             Matrix a = Matrix.GetRandom(n, n);
             Matrix b = Matrix.GetRandom(n, n);
 
+            Stopwatch timer = new Stopwatch();
+
+            timer.Start();
             Matrix c = Matrix.Multiply(a, b);
+            timer.Stop();
+            Console.WriteLine($"Последовательный метод вычисления, с: {timer.Elapsed.TotalSeconds}");
+
+            timer.Reset();
+
+            timer.Start();
+            Matrix c1 = Matrix.MultiplyAsync(a, b).Result;
+            timer.Stop();
+
+            Console.WriteLine($"Асинхронный метод вычисления, с: {timer.Elapsed.TotalSeconds}");
 
             Console.WriteLine();
             Console.Write("Для завершения работы нажмите любую клавишу...");
