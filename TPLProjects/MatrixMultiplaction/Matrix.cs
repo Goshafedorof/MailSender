@@ -103,9 +103,9 @@ namespace MatrixMultiplaction
 
             for (int row = 0; row < result.RowsCount; row++)
             {
+                int row1 = row;
                 for (int column = 0; column < result.ColumnsCount; column++)
-                {
-                    int row1 = row;
+                {   
                     int column1 = column;
                     result[row1, column1] = await Task.Run(() => MultiplyVectors(A.GetRow(row1), B.GetColumn(column1))).ConfigureAwait(false);
                 }
@@ -124,5 +124,10 @@ namespace MatrixMultiplaction
 
             return result;
         }
+
+        //public void Multiply_quard_matix_3_3()
+        //{
+        //    
+        //}
     }
 }
